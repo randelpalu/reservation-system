@@ -3,3 +3,12 @@ os: linux
 files:
   - source: /
     destination: /var/www/html
+permissions:
+  - object: /var/www/html
+    owner: www-data
+    group: www-data
+    pattern: "**"
+hooks:
+  AfterInstall:
+    - location: aws-deploy.sh
+      runas: ubuntu

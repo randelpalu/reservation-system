@@ -1,0 +1,15 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      php: 8.2
+    commands:
+      - composer install --prefer-dist --no-progress --no-interaction
+  pre_build:
+    commands:
+      - cp .env.example .env
+      - php artisan key:generate
+  build:
+    commands:
+      - php artisan test
