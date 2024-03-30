@@ -12,4 +12,5 @@ phases:
       - php artisan key:generate
   build:
     commands:
+      - ./vendor/bin/pint --test
       - php artisan test
